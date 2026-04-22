@@ -1,0 +1,20 @@
+{
+  "name": "Integration - Error handling for LLM failure in analyze_planetary_comparison",
+  "description": "Simulates an LLM failure during the analyze_planetary_comparison method and verifies error handling and fallback response.",
+  "test_type": "integration",
+  "input": "Force LLMService.generate_response to raise an exception during /query endpoint call.",
+  "output": "A QueryResponse with success=False, result set to FALLBACK_RESPONSE, error message indicating LLM error, and tips.",
+  "success_criteria": [
+    "LLM error is caught",
+    "Response is a valid QueryResponse",
+    "success is False",
+    "result equals FALLBACK_RESPONSE",
+    "error contains LLM error message",
+    "tips suggests retrying or checking LLM config"
+  ],
+  "error_scenarios": [
+    "LLM API key missing",
+    "OpenAI endpoint misconfigured",
+    "Unexpected LLM API error"
+  ]
+}
