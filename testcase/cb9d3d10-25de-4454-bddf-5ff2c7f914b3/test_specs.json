@@ -1,0 +1,14 @@
+{
+  "name": "Functional - Health check endpoint returns status ok",
+  "description": "Checks that the /health endpoint returns a simple status response indicating the service is running.",
+  "test_type": "functional",
+  "input": "GET request to /health endpoint.",
+  "output": "A JSON object with status: ok.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response JSON contains 'status': 'ok'"
+  ],
+  "error_scenarios": [
+    "Application startup failure"
+  ]
+}
