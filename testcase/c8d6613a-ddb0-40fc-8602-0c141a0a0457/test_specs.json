@@ -1,0 +1,17 @@
+{
+  "name": "Integration - Exception handler returns correct response for malformed JSON",
+  "description": "Verifies that the FastAPI exception handler for RequestValidationError returns the correct error structure for malformed requests.",
+  "test_type": "integration",
+  "input": "POST request to /query endpoint with invalid/malformed JSON body.",
+  "output": "A JSON response with success=False, result=None, error message about malformed JSON, and tips.",
+  "success_criteria": [
+    "HTTP status code is 422",
+    "Response JSON contains success=False",
+    "result is None",
+    "error contains 'Malformed JSON or invalid request.'",
+    "tips suggests checking JSON formatting"
+  ],
+  "error_scenarios": [
+    "Malformed JSON in request"
+  ]
+}
