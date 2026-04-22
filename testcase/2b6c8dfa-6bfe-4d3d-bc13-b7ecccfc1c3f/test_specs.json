@@ -1,0 +1,19 @@
+{
+  "name": "Functional - /query endpoint returns fallback when documents missing",
+  "description": "Ensures /query endpoint returns fallback response and error message when required documents are not found in the knowledge base.",
+  "test_type": "functional",
+  "input": "POST request to /query endpoint with knowledge base missing Earth.pdf and Jupiter.pdf.",
+  "output": "A QueryResponse with success=False, result set to FALLBACK_RESPONSE, error message indicating missing documents, and tips.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response is a valid QueryResponse",
+    "success is False",
+    "result equals FALLBACK_RESPONSE",
+    "error contains indication of missing documents",
+    "tips suggests ensuring documents are present"
+  ],
+  "error_scenarios": [
+    "Knowledge base misconfigured",
+    "Search returns empty result"
+  ]
+}
