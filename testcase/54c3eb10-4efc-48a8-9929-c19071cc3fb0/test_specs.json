@@ -1,0 +1,18 @@
+{
+  "name": "Integration - End-to-end planetary comparison with all services available",
+  "description": "Tests the full workflow: chunk retrieval from Azure AI Search, LLM generation, formatting, and response via /query endpoint.",
+  "test_type": "integration",
+  "input": "POST request to /query endpoint with all required Azure and OpenAI services available and documents present.",
+  "output": "A QueryResponse with success=True and a structured comparative analysis in result.",
+  "success_criteria": [
+    "All service calls (search, LLM) are made",
+    "Response is a valid QueryResponse",
+    "success is True",
+    "result contains expected comparative content (e.g., mentions of Earth and Jupiter, diameters, distances)"
+  ],
+  "error_scenarios": [
+    "Azure AI Search returns error",
+    "OpenAI API returns error",
+    "Formatting fails"
+  ]
+}
