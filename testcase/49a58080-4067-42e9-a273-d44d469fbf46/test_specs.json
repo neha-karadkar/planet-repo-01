@@ -1,0 +1,20 @@
+{
+  "name": "Functional - Successful /query endpoint returns valid QueryResponse",
+  "description": "Validates that the /query endpoint returns a successful QueryResponse with expected structure when all dependencies are available and documents exist.",
+  "test_type": "functional",
+  "input": "POST request to /query endpoint with no body (as per API design).",
+  "output": "A QueryResponse object with success=True, result containing a non-empty string, error=None, tips=None.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response is a valid QueryResponse",
+    "success is True",
+    "result is a non-empty string",
+    "error is None",
+    "tips is None"
+  ],
+  "error_scenarios": [
+    "Azure AI Search unavailable",
+    "OpenAI API unavailable",
+    "Knowledge base documents missing"
+  ]
+}
